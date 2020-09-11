@@ -1,0 +1,11 @@
+<ul class="posts">
+    <li *ngFor="let entry of post">
+        <span class="badge"> Post # </span>{{entry.post_Id}}
+        <span class="badge"> by user </span>{{entry.userName}}
+        <!--<div>Image: {{entry.postContent.imageKey}}</div>-->
+        <div>{{entry.postContent.text}}</div>
+        <p></p>
+      </li>
+  </ul>
+
+
