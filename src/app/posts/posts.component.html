@@ -1,10 +1,11 @@
 <ul class="posts">
-    <li *ngFor="let entry of post">
-        <span class="badge"> Post # </span>{{entry.post_Id}}
-        <span class="badge"> by user </span>{{entry.userName}}
-        <!--<div>Image: {{entry.postContent.imageKey}}</div>-->
-        <div>{{entry.postContent.text}}</div>
-        <p></p>
+    <li *ngFor="let entry of post.slice().reverse()">
+        <div class="card">
+            <h2>Post # {{entry.post_Id}}</h2>
+            <h5>by user {{entry.userName}}</h5>
+            <img src={{entry.postContent.imageData}}>
+            <div>{{entry.postContent.text}}</div>
+          </div>
       </li>
   </ul>
 
