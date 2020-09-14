@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
+import { MarkdownPipe } from './markdown.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent
+    PostsComponent,
+    MarkdownPipe
   ],
   imports: [
     BrowserModule,

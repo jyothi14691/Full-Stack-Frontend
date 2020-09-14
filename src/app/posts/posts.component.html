@@ -11,9 +11,7 @@
             <div  style="text-align:center;">
                 <img src={{entry.postContent.imageData}}>
             </div>
-            <div>{{entry.postContent.text}}</div>
-            <!--<p markdown-to-html={{entry.postContent.text}}></p>
-            <p markdown-to-html="### TEST"></p>-->
+            <div>{{entry.postContent.text | markdownTranslater}}</div>
           </div>
       </li>
   </ul>

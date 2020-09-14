@@ -17,13 +17,6 @@ export class PostsComponent implements OnInit {
     this.postService.getPosts().subscribe(post => this.post = post);
   }
 
-  updateImages(): void {
-    for(var item of this.post){
-      item.postContent.imageData= "data:image/jpg;base64,".concat(item.postContent.imageData);
-      console.log(item.postContent.imageData);
-    }
-  }
-
   ngOnInit(): void {
     this.getPosts();
   }
