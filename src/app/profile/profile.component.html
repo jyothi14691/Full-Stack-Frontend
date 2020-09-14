@@ -1,0 +1,25 @@
+<label class="hoverable" for="fileInput">
+  <img [src]=" url ? url : 'https://www.w3schools.com/howto/img_avatar.png'">
+  <div class="hover-text">Choose file</div>
+  <div class="background"></div>
+</label>
+<br/>
+<input id="fileInput" type='file' (change)="onSelectFile($event)">
+<button *ngIf="url" (click)="delete()" >delete</button>
+<div class="container">
+  <div class="column">
+    <div class="x12">
+      <label>First Name:</label>
+      <input type = 'text' >
+      <hr>
+      <label>Last Name:</label>
+      <input type = "text" class="form-control" >
+      <hr>
+      <button
+      class="btn btn-primary"
+      (click)="onSave()">Save Profile</button>
+      <button (click)="goBack()">go back</button>
+    </div>
+
+  </div>
+
