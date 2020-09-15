@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -10,13 +12,14 @@ export class ProfileComponent implements OnInit {
   firstName = '';
   lastName = '';
 
-  constructor(private location: Location) {
+  constructor(private location: Location, private domSanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
   }
 
-  url = '';
+  //base64Image = [];
+ base64Image: string;
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
@@ -24,16 +27,22 @@ export class ProfileComponent implements OnInit {
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 
       reader.onload = (event) => { // called once readAsDataURL is completed
-        this.url = event.target.result as string;
+
+        this.base64Image = event.target.result as string;
+        //console.log(this.base64Image);
+
       }
     }
   }
+
   public delete(){
-    this.url = null;
+    this.base64Image = null;
   }
 
   onSave(){
-    // this.url =
+    console.log(this.firstName);
+    console.log(this.lastName);
+    console.log(this.base64Image);
   }
 
   goBack(): void {
