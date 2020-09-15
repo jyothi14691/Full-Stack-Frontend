@@ -19,10 +19,7 @@
     "@angular/platform-browser": "~10.1.0",
     "@angular/platform-browser-dynamic": "~10.1.0",
     "@angular/router": "~10.1.0",
-<<<<<<< HEAD
     "@types/showdown": "^1.4.31",
-=======
->>>>>>> dev
     "dompurify": "^2.0.15",
     "rxjs": "~6.6.0",
     "showdown": "^1.9.1",
