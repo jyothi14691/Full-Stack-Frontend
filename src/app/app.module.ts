@@ -10,6 +10,16 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MarkdownPipe } from './markdown.pipe';
+import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
+import {OKTA_CONFIG} from '@okta/okta-angular';
+
+const oktaConfig = {
+    issuer: 'https://dev-176965.okta.com/oauth2/default',
+    redirectUri: window.location.origin + '/implicit/callback',
+    clientId: '0oaz4njvbK4yXEd9b4x6',
+    pkce: true
+};
+
 
 @NgModule({
   declarations: [
@@ -23,9 +33,12 @@ import { MarkdownPipe } from './markdown.pipe';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    OktaAuthModule
   ],
-  providers: [],
+  providers: [
+    { provide: OKTA_CONFIG, useValue: oktaConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
