@@ -14,17 +14,14 @@ export class PostsComponent implements OnInit {
 
   post: Post[];
 
-  constructor(private postService: PostService /**/,public oktaAuth: OktaAuthService, private http: HttpClient) { }
+  constructor(private postService: PostService,public oktaAuth: OktaAuthService, private http: HttpClient) { }
 
-  getPosts(): void {
+  //getPosts(): void {
     //this.postService.getPosts().subscribe(post => this.post = post);
+  //}
 
-  }
-
-  /**/ async /**/ngOnInit()/*: void*/ {
-    //this.getPosts();
+  async ngOnInit(){
     const accessToken = await this.oktaAuth.getAccessToken();
-    console.log(accessToken);
     this.http.get("http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/all", {
       headers: {
         Authorization: 'Bearer ' + accessToken,
