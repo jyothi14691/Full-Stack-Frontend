@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { OktaAuthGuard,  OktaCallbackComponent } from '@okta/okta-angular';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'profile', component: ProfileComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', canActivate: [ OktaAuthGuard ], component: HomeComponent },
+  { path: 'implicit/callback', component: OktaCallbackComponent }
 ];
 
 @NgModule({

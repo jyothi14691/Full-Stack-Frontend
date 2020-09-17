@@ -5,6 +5,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ProfileService } from '../profile.service';
 import { Profile } from '../profile';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
+import { PostService } from '../post.service';
+import { PostsComponent } from '../posts/posts.component';
 
 @Component({
   selector: 'app-profile',
@@ -14,17 +16,22 @@ import { toBase64String } from '@angular/compiler/src/output/source_map';
 export class ProfileComponent implements OnInit {
   firstName = '';
   lastName = '';
-  userName = 'Doggg2125';
+  userName = '';
   base64Image: string = '';
-  profile: Profile;
+  profile: Profile = <any>{};
+  isReadOnly: boolean;
+  isHidden: boolean;
+
 
 
   constructor(private location: Location, private domSanitizer: DomSanitizer,
-                private profileService: ProfileService ) {
+                private profileService: ProfileService, private postsComponent:PostsComponent) {
+
   }
 
   ngOnInit(): void {
     //get profile should be called here
+
   }
 
   //base64Image = [];
@@ -49,8 +56,9 @@ export class ProfileComponent implements OnInit {
   }
 
   onSave(){
-
     this.postProfile();
+    this.isReadOnly = true;
+    //this.isHidden = true;
   }
 
   goBack(): void {
@@ -68,6 +76,5 @@ export class ProfileComponent implements OnInit {
       profileImageData: this.base64Image
     }).subscribe(profile => this.profile = profile);
   }
-
 
 }

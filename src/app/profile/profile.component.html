@@ -5,20 +5,20 @@
 </label>
 <br/>
 <input id="fileInput" type='file' (change)="onSelectFile($event)">
-<button *ngIf="base64Image" (click)="delete()">delete</button>
+<button *ngIf="base64Image" (click)="delete()" hidden="{{ isReadOnly }}">delete</button>
 <div class="container">
   <div class="column">
     <div class="x12">
       <label>First Name:</label>
-      <input type = 'text' class="form-control" [(ngModel)]="firstName">
+      <input type = 'text' readonly="{{ isReadOnly }}" class="form-control" [(ngModel)]="firstName">
       <hr>
       <label>Last Name:</label>
-      <input type = "text" class="form-control" [(ngModel)]="lastName">
+      <input type = "text" readonly="{{ isReadOnly }}" class="form-control" [(ngModel)]="lastName">
       <hr>
       <button
       class="btn btn-primary"
       [disabled]="firstName === '' || lastName === ''"
-      (click)="onSave()">Save Profile</button>
+      (click)="onSave()" hidden="{{ isReadOnly }}">Save Profile</button>
       <button (click)="goBack()">go back</button>
     </div>
 
