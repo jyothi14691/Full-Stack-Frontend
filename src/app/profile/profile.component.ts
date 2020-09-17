@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ProfileService } from '../profile.service';
+import { Profile } from '../profile';
+import { toBase64String } from '@angular/compiler/src/output/source_map';
 
 @Component({
   selector: 'app-profile',
@@ -11,15 +14,21 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ProfileComponent implements OnInit {
   firstName = '';
   lastName = '';
+  userName = 'Doggg2125';
+  base64Image: string = '';
+  profile: Profile;
 
-  constructor(private location: Location, private domSanitizer: DomSanitizer) {
+
+  constructor(private location: Location, private domSanitizer: DomSanitizer,
+                private profileService: ProfileService ) {
   }
 
   ngOnInit(): void {
+    //get profile should be called here
   }
 
   //base64Image = [];
- base64Image: string;
+
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
@@ -40,13 +49,24 @@ export class ProfileComponent implements OnInit {
   }
 
   onSave(){
-    console.log(this.firstName);
-    console.log(this.lastName);
-    console.log(this.base64Image);
+
+    this.postProfile();
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  postProfile(): void {
+    //console.log(this.b64ToSend);
+    //dataBytes = toBase64String.decode(this.base64Image);
+
+    this.profileService.postProfile({
+      firstName: this.firstName,
+      lastName: this.lastName,
+      userName: this.userName,
+      profileImageData: this.base64Image
+    }).subscribe(profile => this.profile = profile);
   }
 
 

@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MarkdownPipe } from './markdown.pipe';
+import { NewPostComponent } from './new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { MarkdownPipe } from './markdown.pipe';
     PostsComponent,
     HomeComponent,
     ProfileComponent,
-    MarkdownPipe
+    MarkdownPipe,
+    NewPostComponent,
+
   ],
   imports: [
     BrowserModule,
