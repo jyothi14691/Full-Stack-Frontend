@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MarkdownPipe } from './markdown.pipe';
+import { NewPostComponent } from './new-post/new-post.component';
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 import {OKTA_CONFIG} from '@okta/okta-angular';
 
@@ -21,14 +22,14 @@ const oktaConfig = {
     pkce: true
 };
 
-
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
     HomeComponent,
     ProfileComponent,
-    MarkdownPipe
+    MarkdownPipe,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
