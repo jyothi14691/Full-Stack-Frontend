@@ -8,7 +8,7 @@ import { OktaAuthGuard,  OktaCallbackComponent } from '@okta/okta-angular';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', canActivate: [ OktaAuthGuard ], component: ProfileComponent },
   { path: 'newpost', component: NewPostComponent },
   { path: 'home', canActivate: [ OktaAuthGuard ], component: HomeComponent },
   { path: 'implicit/callback', component: OktaCallbackComponent }

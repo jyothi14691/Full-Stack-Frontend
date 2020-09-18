@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Directive, GetTestability, OnInit } from '@angular/core';
 import { Post } from '../post';
 import { PostService } from '../post.service';
 

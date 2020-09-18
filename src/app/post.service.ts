@@ -40,7 +40,6 @@ export class PostService /**/ implements OnInit {
 /**/
   async ngOnInit(){
     this.accessToken = await this.oktaAuth.getAccessToken();
-    //console.log(accessToken);
   }
 /**/
   async getAuth(){
