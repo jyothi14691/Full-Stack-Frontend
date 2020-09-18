@@ -88,7 +88,7 @@ export class ProfileComponent implements OnInit {
         //console.log("=====" +this.firstName+this.lastName+this.base64Image);
       });
       if(this.profile.firstName == null){
-      this.isReadOnly = false;
+        this.isReadOnly = false;
       }
 
   }
