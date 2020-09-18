@@ -87,7 +87,10 @@ export class ProfileComponent implements OnInit {
         this.base64Image = profile.profileImageData;
         //console.log("=====" +this.firstName+this.lastName+this.base64Image);
       });
-      this.isReadOnly = true;
+      if(this.profile.firstName == null){
+      this.isReadOnly = false;
+      }
+
   }
 
 }
