@@ -21,10 +21,18 @@ export class ProfileService {
   }
 
   postProfile(profile: Profile): Observable<Profile> {
-    console.log(JSON.stringify(profile));
+    //console.log(JSON.stringify(profile));
     return this.http.post<Profile>(this.localBlogUrl + '/profile', JSON.stringify(profile), this.httpOptions)
     .pipe(
       retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+  getProfile(username: string): Observable<Profile> {
+    return this.http.get<Profile>(this.localBlogUrl + '/profile/'+username, this.httpOptions)
+    .pipe(
+      retry(2),
       catchError(this.handleError)
     )
   }
