@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Directive, GetTestability, OnInit } from '@angular/core';
 import { Post } from '../post';
 import { PostService } from '../post.service';
+
+import { OktaAuthService } from '@okta/okta-angular';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-posts',
@@ -11,14 +14,24 @@ export class PostsComponent implements OnInit {
 
   post: Post[];
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService,public oktaAuth: OktaAuthService, private http: HttpClient) { }
 
-  getPosts(): void {
-    this.postService.getPosts().subscribe(post => this.post = post);
-  }
+  //getPosts(): void {
+    //this.postService.getPosts().subscribe(post => this.post = post);
+  //}
 
-  ngOnInit(): void {
-    this.getPosts();
+  async ngOnInit(){
+    const accessToken = await this.oktaAuth.getAccessToken();
+    this.http.get("http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/all", {
+      headers: {
+        Authorization: 'Bearer ' + accessToken,
+      }
+    }).subscribe((data: any) => {
+      // Use the data returned by the API
+        this.post = data
+    }, (err) => {
+      console.error(err);
+    });
   }
 
 }
