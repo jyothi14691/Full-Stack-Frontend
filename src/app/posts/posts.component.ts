@@ -2,7 +2,6 @@ import { Component, Input, Directive, GetTestability, OnInit } from '@angular/co
 import { Post } from '../post';
 import { PostService } from '../post.service';
 
-import { OktaAuthService } from '@okta/okta-angular';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -14,7 +13,7 @@ export class PostsComponent implements OnInit {
 
   post: Post[];
 
-  constructor(private postService: PostService,public oktaAuth: OktaAuthService, private http: HttpClient) { }
+  constructor(private postService: PostService, private http: HttpClient) { }
 
   //getPosts(): void {
     //this.postService.getPosts().subscribe(post => this.post = post);
