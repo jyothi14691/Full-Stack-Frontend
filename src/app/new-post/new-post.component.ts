@@ -45,7 +45,7 @@ export class NewPostComponent implements OnInit {
     console.log(this.post.postContent.imageData);
     this.http.post<Post>("http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/new", this.post, //{
         //headers: {
-        //Authorization: 'Bearer ' + this.accessToken,
+        //Authorization: 'Bearer ' + this.accessToken,s
       //}
     /*}*/).subscribe((data: any) => {
 

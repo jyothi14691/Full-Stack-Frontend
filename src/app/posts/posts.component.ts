@@ -19,6 +19,7 @@ export class PostsComponent implements OnInit {
   //getPosts(): void {
     //this.postService.getPosts().subscribe(post => this.post = post);
   //}
+  //http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/all
 
   async ngOnInit(){
     const accessToken = await this.oktaAuth.getAccessToken();

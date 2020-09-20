@@ -1,0 +1,26 @@
+<h2>Tags</h2>
+<ul class = "tags">
+  <li *ngFor = "let tag of tags"
+  [class.selected]="tag === selectedTag"
+  (click)="onSelect(tag)">
+    {{tag}}
+  </li>
+</ul>
+
+<ul *ngIf="selectedTag" class="posttags">
+  <li *ngFor = "let post of postsbyTag">
+        <div class="card">
+          <h2>Post # {{post.post_Id}}</h2>
+          <h5>
+              by user {{post.userName}}
+              <span style="float:right;">
+                  tagged: {{post.tag}}
+              </span>
+          </h5>
+          <div  style="text-align:center;">
+              <img src={{base64Image}}>
+          </div>
+          <div [innerHTML]="post.postContent.text | markdownTranslater"></div>
+        </div>
+  </li>
+</ul>
