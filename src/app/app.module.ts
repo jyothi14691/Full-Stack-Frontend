@@ -13,6 +13,9 @@ import { MarkdownPipe } from './markdown.pipe';
 import { NewPostComponent } from './new-post/new-post.component';
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 import {OKTA_CONFIG} from '@okta/okta-angular';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 const oktaConfig = {
     issuer: 'https://dev-176965.okta.com/oauth2/default',
@@ -29,14 +32,17 @@ const oktaConfig = {
     HomeComponent,
     ProfileComponent,
     MarkdownPipe,
-    NewPostComponent
+    NewPostComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    OktaAuthModule
+    OktaAuthModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: OKTA_CONFIG, useValue: oktaConfig }

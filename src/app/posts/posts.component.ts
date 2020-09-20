@@ -21,12 +21,10 @@ export class PostsComponent implements OnInit {
   //}
 
   async ngOnInit(){
-    const accessToken = await this.oktaAuth.getAccessToken();
-    this.http.get("http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/all", {
-      headers: {
-        Authorization: 'Bearer ' + accessToken,
-      }
-    }).subscribe((data: any) => {
+    const accessToken = localStorage.getItem("id_token");
+    this.http.get("http://localhost:5000/blog/all"
+    //this.http.get("http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/all", {
+    ).subscribe((data: any) => {
       // Use the data returned by the API
         this.post = data
     }, (err) => {

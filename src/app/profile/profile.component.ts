@@ -6,8 +6,9 @@ import { ProfileService } from '../profile.service';
 import { Profile } from '../profile';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { Post } from '../post';
-import { OktaAuthService } from '@okta/okta-angular';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
+import { Router }  from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -26,18 +27,16 @@ export class ProfileComponent implements OnInit {
 
 
   constructor(private location: Location, private domSanitizer: DomSanitizer,
-                private profileService: ProfileService, public oktaAuth: OktaAuthService, private http: HttpClient) {
-
+                private profileService: ProfileService, private http: HttpClient,
+                private authService: AuthService, private router: Router) {
   }
 
   async ngOnInit(){
-    const accessToken = await this.oktaAuth.getAccessToken();
-    const userClaims = await this.oktaAuth.getUser();
-    this.loggedInUserName = userClaims.name;
-    //console.log("loggedInUserName: " +this.loggedInUserName);
-
+    if(this.authService.isLoggedOut()){
+      this.router.navigate(['/login']);
+    }
+    this.loggedInUserName = localStorage.getItem("username");
     this.getProfile();
-
   }
 
   onSelectFile(event) {
@@ -49,8 +48,6 @@ export class ProfileComponent implements OnInit {
       reader.onload = (event) => { // called once readAsDataURL is completed
 
         this.base64Image = event.target.result as string;
-        //console.log(this.base64Image);
-
       }
     }
   }
@@ -69,8 +66,6 @@ export class ProfileComponent implements OnInit {
   }
 
   postProfile(): void {
-    //dataBytes = toBase64String.decode(this.base64Image);
-    //console.log("valuepassed: " +this.userName);
     this.profileService.postProfile({
       firstName: this.firstName,
       lastName: this.lastName,
@@ -85,12 +80,10 @@ export class ProfileComponent implements OnInit {
         this.firstName = profile.firstName;
         this.lastName = profile.lastName;
         this.base64Image = profile.profileImageData;
-        //console.log("=====" +this.firstName+this.lastName+this.base64Image);
       });
-      if(this.profile.firstName == null){
+      if(this.profile.firstName == "noProfile"){
         this.isReadOnly = false;
       }
-
   }
 
 }
