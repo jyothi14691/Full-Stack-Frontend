@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post';
 
-import { OktaAuthService } from '@okta/okta-angular';
 import { HttpClient } from '@angular/common/http';
 import { Inject }  from '@angular/core';
 import { Router }  from '@angular/router';
@@ -9,6 +8,7 @@ import { DOCUMENT } from '@angular/common';
 import { PostService } from '../post.service';
 import { PostContent } from '../postcontent';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -30,30 +30,36 @@ export class NewPostComponent implements OnInit {
               tag:'',
             postContent: this.postContent
             }
-  accessToken: any;
   replyPost: Post;
 
-  constructor(@Inject(DOCUMENT) document,/*public oktaAuth: OktaAuthService,*/ private http: HttpClient, private router: Router, public _DomSanitizationService: DomSanitizer ) {
+  constructor(@Inject(DOCUMENT) document, private http: HttpClient,
+                private router: Router, public _DomSanitizationService: DomSanitizer, private authService: AuthService ) {
   }
 
   async ngOnInit() {
-    //const accessToken = await this.oktaAuth.getAccessToken();
   }
 
   onClickSubmit(){
-    //http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/new
-    console.log(this.post.postContent.imageData);
-    this.http.post<Post>("http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/new", this.post, //{
-        //headers: {
-        //Authorization: 'Bearer ' + this.accessToken,s
-      //}
-    /*}*/).subscribe((data: any) => {
-
+    if(this.authService.isLoggedIn){
+      const accessToken = localStorage.getItem("id_token");
+      this.http.post<Post>("http://localhost:5000/blog/authenticatedNew", this.post, {
+        headers: {Authorization: 'Bearer ' + accessToken}
+      }).subscribe((data: any) => {
         this.replyPost = data
-    }, (err) => {
-      console.error(err);
-    });
-    this.router.navigate(['/home']);
+      }, (err) => {
+        console.error(err);
+      });
+      this.router.navigate(['/home']);
+    } else {
+      //http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/new
+      this.http.post<Post>("http://localhost:5000/blog/new", this.post
+      ).subscribe((data: any) => {
+        this.replyPost = data
+      }, (err) => {
+        console.error(err);
+      });
+      this.router.navigate(['/home']);
+    }
   }
 
   onFileChanged(event: any) {

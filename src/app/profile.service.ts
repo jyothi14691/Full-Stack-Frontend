@@ -13,15 +13,14 @@ export class ProfileService {
   private localBlogUrl = 'http://localhost:5000/blog';
 
   @Output() change: EventEmitter<any> = new EventEmitter();
-  //eventsSubject: Subject<void> = new Subject<void>();
-  //postsbyTag: Post[];
 
   constructor(private http: HttpClient) { }
 
   // Http Options
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('id_token')
     })
   }
 
