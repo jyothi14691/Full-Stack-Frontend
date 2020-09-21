@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  isHidePosts: boolean;
 
-  constructor() { }
+  constructor(private profileService: ProfileService) {
+    profileService.sendData(false);
+  }
 
   ngOnInit(): void {
+    this.profileService.change.subscribe(emitedValue => {
+      this.isHidePosts = emitedValue;
+    });
   }
 
 }

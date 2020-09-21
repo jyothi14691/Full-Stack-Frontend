@@ -14,7 +14,7 @@ import { NewPostComponent } from './new-post/new-post.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
-
+import { TagsComponent } from './tags/tags.component';
 
 
 @NgModule({
@@ -25,6 +25,7 @@ import { RegisterComponent } from './register/register.component';
     ProfileComponent,
     MarkdownPipe,
     NewPostComponent,
+    TagsComponent
     LoginComponent,
     RegisterComponent
   ],

@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
   profile: Profile = <any>{};
   isReadOnly: boolean;
   loggedInUserName: string='';
+  isHidden : boolean;
 
 
   constructor(private location: Location, private domSanitizer: DomSanitizer,
@@ -81,6 +82,7 @@ export class ProfileComponent implements OnInit {
         this.lastName = profile.lastName;
         this.base64Image = profile.profileImageData;
       });
+
       if(this.profile.firstName == ""){
         this.isReadOnly = false;
       }
