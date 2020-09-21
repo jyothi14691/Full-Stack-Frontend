@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class PostService /**/ implements OnInit {
+export class PostService{
 
   /*//private blogUrl = 'http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/all';
   private blogUrl = 'http://localhost:5000/blog/all';*/
@@ -37,7 +37,4 @@ export class PostService /**/ implements OnInit {
     };
   }
 */
-  ngOnInit(){
-
-  }
 }

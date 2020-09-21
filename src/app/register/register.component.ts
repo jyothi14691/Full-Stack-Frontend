@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
 
   onClickSubmit(){
     if(this.loginForm.valid){
-      this.authService.createAuthProfile(this.loginForm.value.userName, this.loginForm.value.password);
+      this.authService.createAuthProfile(this.loginForm.value.userName, this.loginForm.value.password1);
       this.router.navigate(['/home']);
     }
   }

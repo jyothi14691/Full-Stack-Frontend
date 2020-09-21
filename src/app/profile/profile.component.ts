@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   firstName = '';
   lastName = '';
   userName = '';
-  base64Image: string = '';
+  base64Image: string = " ";
   profile: Profile = <any>{};
   isReadOnly: boolean;
   loggedInUserName: string='';
@@ -81,7 +81,7 @@ export class ProfileComponent implements OnInit {
         this.lastName = profile.lastName;
         this.base64Image = profile.profileImageData;
       });
-      if(this.profile.firstName == "noProfile"){
+      if(this.profile.firstName == ""){
         this.isReadOnly = false;
       }
   }
