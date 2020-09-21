@@ -1,0 +1,21 @@
+<div>
+  <ul class="posttags">
+    <li *ngFor = "let post of postsFromTags">
+          <div class="card">
+            <h2>Post # {{post.post_Id}}</h2>
+            <h5>
+                by user {{post.userName}}
+                <span style="float:right;">
+                    tagged: {{post.tag}}
+                </span>
+            </h5>
+            <div  style="text-align:center;">
+                <img src={{post.postContent.imageData}}>
+            </div>
+            <div [innerHTML]="post.postContent.text | markdownTranslater"></div>
+          </div>
+    </li>
+  </ul>
+  <button (click)="goBack()">go back</button>
+</div>
+

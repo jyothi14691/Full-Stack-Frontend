@@ -14,6 +14,7 @@ import { NewPostComponent } from './new-post/new-post.component';
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 import {OKTA_CONFIG} from '@okta/okta-angular';
 import { TagsComponent } from './tags/tags.component';
+import { TagPageComponent } from './tag-page/tag-page.component';
 
 const oktaConfig = {
     issuer: 'https://dev-176965.okta.com/oauth2/default',
@@ -31,7 +32,8 @@ const oktaConfig = {
     ProfileComponent,
     MarkdownPipe,
     NewPostComponent,
-    TagsComponent
+    TagsComponent,
+    TagPageComponent
   ],
   imports: [
     BrowserModule,

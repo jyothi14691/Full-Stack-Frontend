@@ -1,5 +1,5 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { retry, catchError, map, tap } from 'rxjs/operators';
 import { Profile } from './profile';
@@ -13,6 +13,7 @@ export class ProfileService {
   private localBlogUrl = 'http://localhost:5000/blog';
 
   @Output() change: EventEmitter<any> = new EventEmitter();
+  eventsSubject: Subject<void> = new Subject<void>();
 
   constructor(private http: HttpClient) { }
 
@@ -47,7 +48,7 @@ export class ProfileService {
   }
 
   getByTagName(tag: String): Observable<Post[]>{
-    this.sendData(true);
+    //this.sendData(true);
     return this.http.get<Post[]>(`${this.localBlogUrl}/tag?tag=${tag}`, this.httpOptions)
     .pipe(retry(2),
     catchError(this.handleError))
@@ -68,6 +69,7 @@ export class ProfileService {
   }
 
   sendData(data: any): any {
+    console.log("emitted value from tags component : " +data.userName );
     this.change.emit(data);
   }
 
