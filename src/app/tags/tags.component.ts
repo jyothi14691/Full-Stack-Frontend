@@ -34,8 +34,9 @@ export class TagsComponent implements OnInit {
       this.postsbyTag.forEach(post => {
         this.base64Image = post.postContent.imageData
         //console.log("imageData : " +this.base64Image);
+        //this.isHidePosts = true;
       });
-      this.profileService.sendData(this.postsbyTag);
+      this.profileService.sendData(true);
     })
   }
 

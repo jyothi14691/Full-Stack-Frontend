@@ -7,8 +7,9 @@
   </li>
 </ul>
 
-<!-- <ul *ngIf="selectedTag" class="posttags">
+<ul *ngIf="selectedTag" class="posttags">
   <li *ngFor = "let post of postsbyTag">
+
         <div class="card">
           <h2>Post # {{post.post_Id}}</h2>
           <h5>
@@ -23,4 +24,4 @@
           <div [innerHTML]="post.postContent.text | markdownTranslater"></div>
         </div>
   </li>
-</ul> -->
+</ul>

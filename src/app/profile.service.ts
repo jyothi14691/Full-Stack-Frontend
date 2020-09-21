@@ -13,7 +13,8 @@ export class ProfileService {
   private localBlogUrl = 'http://localhost:5000/blog';
 
   @Output() change: EventEmitter<any> = new EventEmitter();
-  eventsSubject: Subject<void> = new Subject<void>();
+  //eventsSubject: Subject<void> = new Subject<void>();
+  //postsbyTag: Post[];
 
   constructor(private http: HttpClient) { }
 
@@ -69,7 +70,6 @@ export class ProfileService {
   }
 
   sendData(data: any): any {
-    console.log("emitted value from tags component : " +data.userName );
     this.change.emit(data);
   }
 

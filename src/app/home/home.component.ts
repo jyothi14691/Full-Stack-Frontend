@@ -7,14 +7,16 @@ import { ProfileService } from '../profile.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  //isHidden: boolean;
+  isHidePosts: boolean;
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private profileService: ProfileService) {
+    profileService.sendData(false);
+  }
 
   ngOnInit(): void {
-    // this.profileService.change.subscribe(emitedValue => {
-    //   this.isHidden = emitedValue;
-    // });
+    this.profileService.change.subscribe(emitedValue => {
+      this.isHidePosts = emitedValue;
+    });
   }
 
 }

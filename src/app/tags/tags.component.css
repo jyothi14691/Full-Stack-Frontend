@@ -44,7 +44,7 @@
 }
 
 .posttags {
-  margin: 0 0 2em 0;
+  /* margin: 0 0 2em 0; */
   list-style-type: none;
   padding: 0;
   width: 50em;
@@ -53,6 +53,8 @@
   border-color: #1C6EA4;
   border-radius: 4px;
   background-color: #f1f1f1;
+  margin-left: auto;
+  margin-right: auto;
 }
 .posttags li {
   position: relative;
