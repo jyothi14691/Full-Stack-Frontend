@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   onClickSubmit(){
     if(this.loginForm.valid){
       this.authService.login(this.loginForm.value.userName, this.loginForm.value.password)
-      const idToken = localStorage.getItem("id_token");
+      const idToken = sessionStorage.getItem("id_token");
       this.router.navigate(['/home']);
     }
   }

@@ -12,7 +12,7 @@ export class AuthService {
 
   login(username:string, password:string ) {
     //http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/authenticate
-    localStorage.setItem('username', username);
+    sessionStorage.setItem('username', username);
     return this.http.post<any>('http://localhost:5000/blog/authenticate', {'username':username, 'password':password})
       .subscribe(res => this.setSession(res)), (err) => {
         console.error(err);
@@ -21,18 +21,18 @@ export class AuthService {
 
   private setSession(authResult) {
     const expiresAt = moment().add(1740,'second');
-    localStorage.setItem('id_token', JSON.parse(JSON.stringify(authResult)).jwt);
-    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+    sessionStorage.setItem('id_token', JSON.parse(JSON.stringify(authResult)).jwt);
+    sessionStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }
 
   logout() {
-    localStorage.removeItem("id_token");
-    localStorage.removeItem("expires_at");
-    localStorage.remoteItem("username")
+    sessionStorage.removeItem("id_token");
+    sessionStorage.removeItem("expires_at");
+    sessionStorage.remoteItem("username")
   }
 
   public isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
+    return (moment().isBefore(this.getExpiration()) && (sessionStorage.getItem('id_token') != null));
   }
 
   isLoggedOut() {
@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   getExpiration() {
-    const expiration = localStorage.getItem("expires_at");
+    const expiration = sessionStorage.getItem("expires_at");
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
   }

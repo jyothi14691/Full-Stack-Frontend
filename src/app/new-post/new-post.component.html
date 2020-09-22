@@ -1,7 +1,7 @@
 <p>Input Your New Post Information Below</p>
 
 <form >
-  <p>Title:<input type="text" id="postTitle"></p>
+  <p>Title:<input [(ngModel)]="post.title" name="title" type="text" id="title"></p>
   <p>Username:<input [(ngModel)]="post.userName" name="userName" type ="text" id="postUsername"></p>
   <p>Tag:<input [(ngModel)]="post.tag" name="tag" type ="text" id="postTag"></p>
   <p>Post Content (Markdown or Text):<textarea [(ngModel)]="post.postContent.text" name="text" type ="text" id="postText"></textarea></p>

@@ -9,25 +9,16 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class PostService{
 
-  /*//private blogUrl = 'http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/all';
-  private blogUrl = 'http://localhost:5000/blog/all';*/
+  /*//private blogUrl = 'http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/all';*/
+  private blogUrl = 'http://localhost:5000/blog/all';
 
   constructor(private http: HttpClient) { }
-/*
-  accessToken: any;
 
-  getPosts(): Observable<Post[]> {
-    this.getAuth();
-    console.log(this.accessToken);
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${this.accessToken}`
-    })
-
-    return this.http.get<Post[]>(this.blogUrl, { headers: headers})//{responseType: 'json'})
-    .pipe(
-      catchError(this.handleError<Post[]>('getPosts', []))
-    );
+  getPosts(): Observable<Post[]>{
+      return this.http.get<Post[]>(this.blogUrl)
+      .pipe(
+        catchError(this.handleError<Post[]>('getPosts', []))
+      );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -36,5 +27,4 @@ export class PostService{
       return of(result as T);
     };
   }
-*/
 }

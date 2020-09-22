@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
     if(this.authService.isLoggedOut()){
       this.router.navigate(['/login']);
     }
-    this.loggedInUserName = localStorage.getItem("username");
+    this.loggedInUserName = sessionStorage.getItem("username");
     this.getProfile();
   }
 

@@ -15,20 +15,12 @@ export class PostsComponent implements OnInit {
 
   constructor(private postService: PostService, private http: HttpClient) { }
 
-  //getPosts(): void {
-    //this.postService.getPosts().subscribe(post => this.post = post);
-  //}
+  public getPosts(): void {
+    this.postService.getPosts().subscribe(post => this.post = post);
+  }
 
   async ngOnInit(){
-    const accessToken = localStorage.getItem("id_token");
-    this.http.get("http://localhost:5000/blog/all"
-    //this.http.get("http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/all", {
-    ).subscribe((data: any) => {
-      // Use the data returned by the API
-        this.post = data
-    }, (err) => {
-      console.error(err);
-    });
+    this.getPosts();
   }
 
 }

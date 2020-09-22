@@ -27,6 +27,7 @@ export class NewPostComponent implements OnInit {
   }
   post: Post = { userName: '',
               post_Id: '',
+              title:'',
               tag:'',
             postContent: this.postContent
             }
@@ -40,8 +41,8 @@ export class NewPostComponent implements OnInit {
   }
 
   onClickSubmit(){
-    if(this.authService.isLoggedIn){
-      const accessToken = localStorage.getItem("id_token");
+    if(this.authService.isLoggedIn()){
+      const accessToken = sessionStorage.getItem("id_token");
       this.http.post<Post>("http://localhost:5000/blog/authenticatedNew", this.post, {
         headers: {Authorization: 'Bearer ' + accessToken}
       }).subscribe((data: any) => {
