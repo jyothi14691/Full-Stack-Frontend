@@ -14,6 +14,8 @@ import { NewPostComponent } from './new-post/new-post.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { TagsComponent } from './tags/tags.component';
+import { TagPageComponent } from './tag-page/tag-page.component';
 
 
 
@@ -26,7 +28,9 @@ import { RegisterComponent } from './register/register.component';
     MarkdownPipe,
     NewPostComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TagsComponent,
+    TagPageComponent
   ],
   imports: [
     BrowserModule,

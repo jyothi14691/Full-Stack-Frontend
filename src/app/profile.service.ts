@@ -16,8 +16,8 @@ export class ProfileService {
   // Http Options
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + localStorage.getItem('id_token')
+      'Content-Type': 'application/json'
+      //Authorization: 'Bearer ' + localStorage.getItem('id_token')
     })
   }
 
