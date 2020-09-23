@@ -10,12 +10,9 @@ import { Post } from './post';
 })
 export class TagsService {
 
-  //private blogUrl = 'http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog';
-  private localBlogUrl = 'http://localhost:5000/blog';
+  private localBlogUrl = 'http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog';
 
   @Output() change: EventEmitter<any> = new EventEmitter();
-  //eventsSubject: Subject<void> = new Subject<void>();
-  //postsbyTag: Post[];
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +30,6 @@ export class TagsService {
   }
 
   getByTagName(tag: String): Observable<Post[]>{
-    //this.sendData(true);
     return this.http.get<Post[]>(`${this.localBlogUrl}/tag?tag=${tag}`, this.httpOptions)
     .pipe(retry(2),
     catchError(this.handleError))

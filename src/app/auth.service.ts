@@ -11,9 +11,8 @@ export class AuthService {
   }
 
   login(username:string, password:string ) {
-    //http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/authenticate
     sessionStorage.setItem('username', username);
-    return this.http.post<any>('http://localhost:5000/blog/authenticate', {'username':username, 'password':password})
+    return this.http.post<any>('http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/authenticate', {'username':username, 'password':password})
       .subscribe(res => this.setSession(res)), (err) => {
         console.error(err);
       };
@@ -46,8 +45,7 @@ export class AuthService {
   }
 
   createAuthProfile(username:string, password:string){
-      //http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/register
-      this.http.post<any>('http://localhost:5000/blog/register', {'username':username, 'password':password})
+      this.http.post<any>('http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog/register', {'username':username, 'password':password})
       .subscribe(res => this.setSession(res)), (err) => {
         console.error(err);
       };

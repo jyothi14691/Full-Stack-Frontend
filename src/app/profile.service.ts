@@ -8,19 +8,12 @@ import { Profile } from './profile';
   providedIn: 'root'
 })
 export class ProfileService {
-  //private blogUrl = 'http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog';
-  private blogUrl = 'http://localhost:5000/blog';
+
+  private blogUrl = 'http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog';
 
   constructor(private http: HttpClient) { }
 
-
-  // Http Options
-  //{headers: new HttpHeaders({'Content-Type': 'application/json',Authorization: 'Bearer ' + sessionStorage.getItem('id_token')})}
-
-
-
   postProfile(profile: Profile): Observable<Profile> {
-    //console.log(JSON.stringify(profile));
     return this.http.post<Profile>(this.blogUrl + '/profile', JSON.stringify(profile),
     {headers: new HttpHeaders({'Content-Type': 'application/json',Authorization: 'Bearer ' + sessionStorage.getItem('id_token')})})
     .pipe(

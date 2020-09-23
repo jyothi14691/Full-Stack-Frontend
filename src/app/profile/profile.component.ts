@@ -43,9 +43,9 @@ export class ProfileComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
 
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      reader.readAsDataURL(event.target.files[0]);
 
-      reader.onload = (event) => { // called once readAsDataURL is completed
+      reader.onload = (event) => {
 
         this.base64Image = event.target.result as string;
       }

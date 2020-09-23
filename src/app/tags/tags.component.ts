@@ -34,8 +34,6 @@ export class TagsComponent implements OnInit {
       this.postsbyTag = post;
       this.tagsService.sendPostToTagsPage(this.postsbyTag );
     })
-    //to hide the posts in home component.html file
-    //this.tagsService.sendData(true);
     this.router.navigate(['/tag-page']);
   }
 }

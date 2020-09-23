@@ -14,7 +14,6 @@ export class TagPageComponent implements OnInit {
   constructor(private tagService: TagsService) { }
 
   ngOnInit(): void {
-    //consume post from tag service
     this.tagService.change.subscribe(emitedValue => {
       this.postFromTag = emitedValue;
     });
