@@ -24,6 +24,18 @@ p {
   flex: 1;
 }
 
+.pigeon{
+  background-image: url(../assets/pigeonCrop.png);
+  width:75px;
+  height: 35px;
+  padding: 0px 10px 0px -20px;
+}
+
+.subtitle{
+  font-size:20px;
+
+}
+
 .toolbar {
   position: absolute;
   top: 0;
@@ -32,19 +44,39 @@ p {
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
-  color: white;
-  font-weight: 800;
+  /*background-color: #1976d2;*/
+  background-image: linear-gradient(#196ABB, #437db8);
+  color: #FCF8E7;
+  font-weight: 900;
+  font-size: 40px;
+  padding:0 10px;
+  box-shadow: 0 1px 1px rgba(44, 42, 150, 0.486),
+  0 2px 2px rgba(0,0,0,0.15),
+  0 3px 3px rgba(0,0,0,0.15),
+  0 4px 4px rgba(0,0,0,0.15);
 }
 
 .toolbar img {
   margin: 0 16px;
 }
 
+.subtoolbar{
+  left:0;
+  background-image: linear-gradient(#196ABB, #437db8);
+  display: flex;
+  margin-top: 60px;
+  height: 37px;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15),
+              0 2px 2px rgba(0,0,0,0.15),
+              0 3px 3px rgba(0,0,0,0.15),
+              0 5px 5px rgba(0,0,0,0.15);
+}
+
 .content {
   display: flex;
-  margin: 82px auto 32px;
-  padding: 0 16px;
+  margin: -70px auto 32px;
+  /*padding: 0 16px;*/
   max-width: 960px;
   flex-direction: column;
   align-items: center;
@@ -59,6 +91,7 @@ svg.material-icons:not(:last-child) {
   margin-right: 8px;
 }
 
+/*
 .card svg.material-icons path {
   fill: #888;
 }
@@ -121,7 +154,7 @@ svg.material-icons:not(:last-child) {
 .card.card.highlight-card span {
   margin-left: 60px;
 }
-
+*/
 
 a,
 a:visited,
@@ -133,7 +166,7 @@ a:hover {
 a:hover {
   color: #125699;
 }
-
+/*
 .terminal {
   position: relative;
   width: 80%;
@@ -166,23 +199,33 @@ a:hover {
   padding: 0 1rem 1rem;
   margin: 0;
 }
-
+*/
 
 footer {
   margin-top: 8px;
   display: flex;
-  align-items: center;
-  line-height: 20px;
-  color: #125699;
+  align-items: right;
+  line-height: 50px;
+  color:white;
+  background-color: #125699;
+  background-image: url(../assets/tracks-small.png)
 
 }
+/*
+.pigeon{
+  background-image: url(../assets/pigeonCrop.png);
+  width:75px;
+  height: 35px;
+  padding: 0px 10px 0px -20px;
+}*/
 
-footer a {
+footer a:link{
   display: flex;
   align-items: center;
+  color:white;
 }
 
-
+/*
 svg#clouds {
   position: fixed;
   bottom: -160px;
@@ -190,9 +233,9 @@ svg#clouds {
   z-index: -10;
   width: 1920px;
 }
+*/
 
-
-/* Responsive Styles */
+/* Responsive Styles 
 @media screen and (max-width: 767px) {
 
   .card-container > *:not(.circle-link) ,
@@ -213,18 +256,24 @@ svg#clouds {
     right: 120px;
     transform: rotate(-5deg);
   }
-}
+}*/
 
-@media screen and (max-width: 575px) {
+/*@media screen and (max-width: 575px) {
   svg#rocket-smoke {
     display: none;
     visibility: hidden;
   }
+}*/
+.navbar{
+  margin-top:-40px;
+  margin-bottom: 40px;
+  margin-left: 10px;
 }
 nav a {
 padding: 5px 30px;
 text-decoration: none;
 margin-top: 10px;
+margin-right: 7px;
 display: inline-block;
 background-color: #eee;
 border-radius: 4px;

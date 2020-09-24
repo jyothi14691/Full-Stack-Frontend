@@ -1,22 +1,27 @@
-
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-
-  <div class="spacer"></div>
+  <div class="pigeon"></div>
   <span>Pigeonholed</span>
   <div class="spacer"></div>
-
+  <span class="subtitle"> a blog born from trial and error</span>
+</div>
+<div class="subtoolbar"></div>
+<div class="navbar">
+<nav>
+  <a routerLink="/home">Home</a>
+  <a routerLink="/newpost">New Blog Post</a>
+  <a routerLink="/login">Login</a>
+  <a routerLink="/profile">Profile</a>
+  <a routerLink="/register">Register New User</a>
+</nav>
 </div>
 <div class="content" role="main">
-    <nav>
-      <a routerLink="/profile">Profile</a>
-      <a routerLink="/home">Home</a>
-      <a routerLink="/newpost">New Blog Post</a>
-      <a routerLink="/login">Login</a>
-      <a routerLink="/register">Register New User</a>
-    </nav>
+
     <router-outlet></router-outlet>
 
 </div>
+<footer>
+  <p><a href="mailto:hege@example.com">See our Github!</a></p>
+</footer>
 
 
