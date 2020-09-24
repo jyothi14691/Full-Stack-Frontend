@@ -27,7 +27,7 @@ export class AuthService {
   logout() {
     sessionStorage.removeItem("id_token");
     sessionStorage.removeItem("expires_at");
-    sessionStorage.remoteItem("username")
+    sessionStorage.removeItem("username");
   }
 
   public isLoggedIn() {

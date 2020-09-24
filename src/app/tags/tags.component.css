@@ -1,3 +1,8 @@
+h2{
+  margin-top:40px;
+  text-align: left;
+  margin-left: -35px;
+}
 .tags {
   list-style-type: none;
   padding: 0;
@@ -6,6 +11,7 @@
   /* margin-right: 20px; */
   margin-left: -80px;
   text-align: center;
+  margin-top:-10px
 }
 .tags ul{
   padding: 0%;

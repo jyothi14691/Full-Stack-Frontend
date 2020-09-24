@@ -1,4 +1,5 @@
-<p>Input Your New Post Information Below</p>
+<div class="newpost">
+<h2>Input Your New Post Information Below</h2>
 
 <form >
   <p>Title:<input [(ngModel)]="post.title" name="title" type="text" id="title"></p>
@@ -8,5 +9,4 @@
   <p>Image:<input #imageInput type="file" accept="image/*"name="image" id="image" (change)="onFileChanged($event)"/></p>
 </form>
 <button (click)="onClickSubmit()">Submit New Post</button>
-
-
+</div>
