@@ -11,16 +11,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MarkdownPipe } from './markdown.pipe';
 import { NewPostComponent } from './new-post/new-post.component';
-import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
-import {OKTA_CONFIG} from '@okta/okta-angular';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { TagsComponent } from './tags/tags.component';
+import { TagPageComponent } from './tag-page/tag-page.component';
 
-const oktaConfig = {
-    issuer: 'https://dev-176965.okta.com/oauth2/default',
-    redirectUri: window.location.origin + '/implicit/callback',
-    clientId: '0oaz4njvbK4yXEd9b4x6',
-    scopes: ['openid', 'profile', 'email'],
-    pkce: true
-};
+
 
 @NgModule({
   declarations: [
@@ -29,17 +26,21 @@ const oktaConfig = {
     HomeComponent,
     ProfileComponent,
     MarkdownPipe,
-    NewPostComponent
+    NewPostComponent,
+    LoginComponent,
+    RegisterComponent,
+    TagsComponent,
+    TagPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    OktaAuthModule
+    ReactiveFormsModule
   ],
   providers: [
-    { provide: OKTA_CONFIG, useValue: oktaConfig }
+
   ],
   bootstrap: [AppComponent]
 })

@@ -58,6 +58,7 @@ img {
     border-color: #1C6EA4;
     border-radius: 4px;
     background-color: #f1f1f1;
+    margin-top: -40px;
   }
 .posts li {
     position: relative;

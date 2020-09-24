@@ -8,21 +8,14 @@ import { Profile } from './profile';
   providedIn: 'root'
 })
 export class ProfileService {
+
   private blogUrl = 'http://gjblog-env.eba-gzw7n3uy.us-east-2.elasticbeanstalk.com/blog';
-  //private localBlogUrl = 'http://localhost:5000/blog';
 
   constructor(private http: HttpClient) { }
 
-  // Http Options
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  }
-
   postProfile(profile: Profile): Observable<Profile> {
-    //console.log(JSON.stringify(profile));
-    return this.http.post<Profile>(this.blogUrl + '/profile', JSON.stringify(profile), this.httpOptions)
+    return this.http.post<Profile>(this.blogUrl + '/profile', JSON.stringify(profile),
+    {headers: new HttpHeaders({'Content-Type': 'application/json',Authorization: 'Bearer ' + sessionStorage.getItem('id_token')})})
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -30,7 +23,8 @@ export class ProfileService {
   }
 
   getProfile(username: string): Observable<Profile> {
-    return this.http.get<Profile>(this.blogUrl + '/profile/'+username, this.httpOptions)
+    return this.http.get<Profile>(this.blogUrl + '/profile/'+username,
+    {headers: new HttpHeaders({'Content-Type': 'application/json',Authorization: 'Bearer ' + sessionStorage.getItem('id_token')})})
     .pipe(
       retry(2),
       catchError(this.handleError)

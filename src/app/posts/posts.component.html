@@ -1,7 +1,7 @@
 <ul class="posts">
     <li *ngFor="let entry of post.slice().reverse()">
         <div class="card">
-            <h2>Post # {{entry.post_Id}}</h2>
+            <h2>{{entry.title}}</h2>
             <h5>
                 by user {{entry.userName}}
                 <span style="float:right;">
@@ -15,5 +15,3 @@
           </div>
       </li>
   </ul>
-
-

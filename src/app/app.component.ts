@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import { OktaAuthService } from './app.service';
+import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  title = 'blog-frame';
-  //title = 'okta-app';
-  //isAuthenticated: boolean;
-  //constructor(public oktaAuth: OktaAuthService) {}
+  title = 'Pigeonhole Blog';
 
-  //ngOnInit() {
-  //  this.oktaAuth.$isAuthenticated.subscribe(val => this.isAuthenticated = val);
-  //}
+  constructor(private authService:AuthService, private router: Router) { }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['/home']);
+  }
 }
