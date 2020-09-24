@@ -1,4 +1,6 @@
-
+.container{
+  margin-top:60px;
+}
 .posttags {
   /* margin: 0 0 2em 0; */
   list-style-type: none;
@@ -34,4 +36,5 @@ img {
   height: auto;
   padding-right: 20px;
   padding-left: 20px;
+  border-radius: 50%;
 }

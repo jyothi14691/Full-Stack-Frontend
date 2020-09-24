@@ -1,3 +1,4 @@
+<div class="login">
 <h3>Input Your Login Information Below</h3>
 
 <form [formGroup]="loginForm" (ngSubmit)="onClickSubmit()">
@@ -26,4 +27,5 @@
   <div *ngIf="password.errors.required">
     Password is required.
   </div>
+</div>
 </div>

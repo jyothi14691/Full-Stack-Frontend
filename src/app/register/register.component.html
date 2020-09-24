@@ -1,3 +1,4 @@
+<div class="register">
 <h3>Input Your Login Information Below</h3>
 
 <form [formGroup]="loginForm" (ngSubmit)="onClickSubmit()">
@@ -46,4 +47,5 @@
   <div *ngIf="this.loginForm.errors.invalidPasswords">
     Passwords do not match. Please try again.
   </div>
+</div>
 </div>
