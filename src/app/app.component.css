@@ -207,25 +207,29 @@ footer {
   display: flex;
   align-items: right;
   line-height: 50px;
-  color:white;
+  color:#FCF8E7;
   background-color: #125699;
-  background-image: url(../assets/tracks-small.png)
-
+  /*background-image: url(../assets/tracks-small.png)*/
 }
 /*
-.pigeon{
+.pigeontracks{
   background-image: url(../assets/pigeonCrop.png);
   width:75px;
   height: 35px;
   padding: 0px 10px 0px -20px;
 }*/
 
-footer a:link{
-  display: flex;
-  align-items: center;
-  color:white;
+footer a.link{
+  color:#FCF8E7;
+  margin: 8px 0;
+  font-style: italic;
 }
 
+/*footer a:link{
+  /*display: flex;
+  align-items: center;
+  color:#FCF8E7;
+}*/
 /*
 svg#clouds {
   position: fixed;
