@@ -1,27 +1,20 @@
-# BlogFrame
+# Pigeonholed Blog
+> A blog framework built on Java & Spring Boot for the back end and Angular for the front end.
+> http://gjblogfrontend.s3-website.us-east-2.amazonaws.com
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
+## Usage
+* Default home page shows you all the blog posts
+* To the left is a list of tags you can click to get only the blog posts tagged as such
+* At the top are buttons to take you to various end points of activity
+	* “New Blog Post” will allow you to create a new blog post
+		* If you are not currently logged in, blog posts will be authored by anonymous
+	* “Login” will let you log in if you are currently a registered user
+	* “Profile” will let you view your profile, or create it if it does not yet exist
+	* “Register New User” will allow you to create a new user login 
+	* “Logout” will log you out
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Stack
+* Backend - Java/Spring Boot
+* Frontend - Angular
+* Data Layer - MySQL
+* Cloud - AWS (EBS, S3)
